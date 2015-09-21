@@ -12,30 +12,26 @@ from resources.lib.parser import cParser #recherche de code
 
 #Si vous créer une source et la déposer dans le dossier sites elle seras directement visible sous xbmc
 
-SITE_IDENTIFIER = 'full_streaming_org' #identifant nom de votre fichier remplacer les espaces et les . par _ aucun caractere speciale
-SITE_NAME = 'Full-Streaming.org' # nom que xbmc affiche
-SITE_DESC = 'films en streaming, vk streaming, youwatch, vimple , streaming hd , streaming 720p , streaming sans limite' #description courte de votre source
+SITE_IDENTIFIER = 'zone-telechargement_com' #identifant nom de votre fichier remplacer les espaces et les . par _ aucun caractere speciale
+SITE_NAME = 'Zone-telechargement.com' # nom que xbmc affiche
+SITE_DESC = 'Site de Streaming Films, Séries et Manga' #description courte de votre source
 
-URL_MAIN = 'http://full-streaming.org/' # url de votre source
+URL_MAIN = 'http://www.zone-téléchargement.com/' # url de votre source
 
 #definis les url pour les catégories principale ceci et automatique si la deffition et présente elle seras afficher.
-MOVIE_NEWS = 'htt://url' # films nouveautés #30101
-MOVIE_VIEWS = 'http://url' # films + vues #30102
-MOVIE_COMMENTS = 'http://url' # films + commentés #30103
-MOVIE_NOTES = 'http://url' # films mieux notés #30104
-MOVIE_GENRES = True # ou http://url #30105
+MOVIE_NEWS = 'http://www.zone-telechargement.com/films.html' # films nouveautées #30101
+MOVIE_LISTES = 'http://www.zone-telechargement.com/liste-des-films.html' # liste de films #30102
+MOVIE_BLURAYS = 'http://www.zone-telechargement.com/films-bluray-hd.html' # films blurays #30103
 
-SERIE_SERIES = 'http://url' # serie nouveautés #30106
-SERIE_VFS = 'http://url' # serie VF #30107
-SERIE_VOSTFRS = 'http://url' # serie Vostfr #30108
+SERIE_SERIES = 'http://www.zone-telechargement.com/liste-des-series.html' # serie nouveautés #30106
+SERIE_VFS = 'http://www.zone-telechargement.com/series-vf-hd.html' # serie VF HD #30107
+SERIE_VOSTFRS = 'http://www.zone-telechargement.com/series-vostfr-hd.html' # serie Vostfr HD #30108
 
-ANIM_ANIMS = 'http://url' #anim nouveautés #30109
-ANIM_VFS = 'http://url' #anime VF #30110
-ANIM_VOSTFRS = 'http://url' #anim VOSTFR #30111
+ANIM_ANIMS = 'http://www.zone-telechargement.com/dessin-anime-mangas/mangas-vf' #anim nouveautés #30109
+ANIM_VFS = 'http://www.zone-telechargement.com/dessin-anime-mangas/mangas-vf' #anime VF #30110
+ANIM_VOSTFRS = 'http://www.zone-telechargement.com/dessin-anime-mangas/mangas-vostfr' #anim VOSTFR #30111
 
-DOC_DOCS = 'http://url/' #Documentaire #30112
-SPORT_SPORTS = 'http://url' #sport #30113
-MOVIE_NETS = 'http://url' #video du net #30114
+DOC_DOCS = 'http://www.zone-telechargement.com/docu-spect-sport/documentaires' #Documentaire #30112
 
 def load(): #function charger automatiquement par l'addon l'index de votre navigation.
     oGui = cGui() #ouvre l'affichage
@@ -68,43 +64,12 @@ def showSearch(): #function de recherche
 
     sSearchText = oGui.showKeyBoard() #apelle le clavier xbmx
     if (sSearchText != False):
-            sUrl = 'http://full-streaming.org/xfsearch/'+sSearchText  #modifier l'url de recherche
+            sUrl = 'http://www.zone-telechargement.com/index.php?q='+sSearchText  #modifier l'url de recherche
             showMovies(sUrl) #apelle la function qui pouras lire la page de resulta
             oGui.setEndOfDirectory()
             return  
     
-    
-def showGenre(): #affiche les genres
-    oGui = cGui()
- 
-    #juste a entrer c'est caterorie et les lien qui vont bien
-    liste = []
-    liste.append( ['Action','http://full-streaming.org/action/'] )
-    liste.append( ['Animation','http://full-streaming.org/animation/'] )
-    liste.append( ['Arts Martiaux','http://full-streaming.org/arts-martiaux/'] )
-    liste.append( ['Aventure','http://full-streaming.org/aventure/'] )
-    liste.append( ['Biopic','http://full-streaming.org/biopic/'] )
-    liste.append( ['Comedie','http://full-streaming.org/comedie/'] )
-    liste.append( ['Comedie Dramatique','http://full-streaming.org/comedie-dramatique/'] )
-    liste.append( ['Comedie Musicale','http://full-streaming.org/comedie-musicale/'] )
-    liste.append( ['Documentaire','http://full-streaming.org/documentaire/'] )
-    liste.append( ['Drame','http://full-streaming.org/drame/'] )
-    liste.append( ['Epouvante Horreur','http://full-streaming.org/epouvante-horreur/'] ) 
-    liste.append( ['Erotique','http://full-streaming.org/erotique'] )
-    liste.append( ['Espionnage','http://full-streaming.org/espionnage/'] )
-    liste.append( ['Famille','http://full-streaming.org/famille/'] )
-    liste.append( ['Fantastique','http://full-streaming.org/fantastique/'] )  
-    liste.append( ['Guerre','http://full-streaming.org/guerre/'] )
-    liste.append( ['Historique','http://full-streaming.org/historique/'] )
-    liste.append( ['Musical','http://full-streaming.org/musical/'] )
-    liste.append( ['Policier','http://full-streaming.org/policier/'] )
-    liste.append( ['Peplum','http://full-streaming.org/peplum/'] )
-    liste.append( ['Romance','http://full-streaming.org/romance/'] )
-    liste.append( ['Science Fiction','http://full-streaming.org/science-fiction/'] )
-    liste.append( ['Spectacle','http://full-streaming.org/spectacle/'] )
-    liste.append( ['Thriller','http://full-streaming.org/thriller/'] )
-    liste.append( ['Western','http://full-streaming.org/western/'] )
-    liste.append( ['Divers','http://full-streaming.org/divers/'] ) 
+
                 
     for sTitle,sUrl in liste:#boucle
         
